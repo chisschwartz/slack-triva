@@ -8,6 +8,7 @@ from slackeventsapi import SlackEventAdapter
 import string
 from datetime import datetime, timedelta
 import time
+import mysql.connector
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -18,6 +19,14 @@ slack_event_adapter = SlackEventAdapter(
 
 client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 BOT_ID = client.api_call("auth.test")['user_id']
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="triviabot",
+    password="Triviabot"
+)
+
+print(mydb)
 
 #schedule messages once a day, either give four choices/true false
 #respond 8-16 hours later with correct response/maybe dm user if they got correct or not
