@@ -23,10 +23,21 @@ BOT_ID = client.api_call("auth.test")['user_id']
 mydb = mysql.connector.connect(
     host="localhost",
     user="triviabot",
-    password="Triviabot"
+    password="Triviabot",
+    database="trivia_bot"
 )
 
-print(mydb)
+mycursor = mydb.cursor()
+
+question = "SELECT Question, ChoiceA, ChoiceB, ChoiceC, ChoiceD FROM trivia"
+answer = "SELECT CorrectChoice FROM answer"
+
+SCHEDULED_MESSAGES = [
+    {'text': 'Question Time: {}'.format(mycursor.execute(question)), 'post_at': (
+        datetime.now() + timedelta(seconds=20)).timestamp(), 'channel': 'C09NHG2EEHL'},
+    {'text': 'Answer', 'post_at': (
+        datetime.now() + timedelta(seconds=30)).timestamp(), 'channel': 'C09NHG2EEHL'}
+]
 
 #schedule messages once a day, either give four choices/true false
 #respond 8-16 hours later with correct response/maybe dm user if they got correct or not
