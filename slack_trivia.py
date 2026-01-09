@@ -8,7 +8,6 @@ from slackeventsapi import SlackEventAdapter
 import string
 from datetime import datetime, timedelta
 import time
-import sql_database
 import sql_query as myquestion
 import sql_answer as myanswer
 
