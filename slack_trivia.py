@@ -8,7 +8,9 @@ from slackeventsapi import SlackEventAdapter
 import string
 from datetime import datetime, timedelta
 import time
-import question_sql_query as myquestion
+import sql_database
+import sql_query as myquestion
+import sql_answer as myanswer
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -21,6 +23,7 @@ load_dotenv(dotenv_path=env_path)
 # BOT_ID = client.api_call("auth.test")['user_id']
 
 myquestion
+myanswer
 
 # SCHEDULED_MESSAGES = [
 #     {'text': 'Question Time: {}'.format(mycursor.execute(question)), 'post_at': (
