@@ -8,34 +8,19 @@ from slackeventsapi import SlackEventAdapter
 import string
 from datetime import datetime, timedelta
 import time
-import mysql.connector
+import question_sql_query as myquestion
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
-app = Flask(__name__)
-slack_event_adapter = SlackEventAdapter(
-    os.environ['SIGNING_SECRET'],'/slack/events', app)
+# app = Flask(__name__)
+# slack_event_adapter = SlackEventAdapter(
+#     os.environ['SIGNING_SECRET'],'/slack/events', app)
 
-client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
-BOT_ID = client.api_call("auth.test")['user_id']
+# client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
+# BOT_ID = client.api_call("auth.test")['user_id']
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="triviabot",
-    password=os.environ['SQL_PASS'],
-    database="trivia_bot"
-)
-
-mycursor = mydb.cursor()
-
-question = "SELECT Question, ChoiceA, ChoiceB, ChoiceC, ChoiceD FROM trivia"
-answer = "SELECT CorrectChoice FROM answer"
-
-mycursor.execute(question)
-
-for x in mycursor:
-    print(x)
+myquestion
 
 # SCHEDULED_MESSAGES = [
 #     {'text': 'Question Time: {}'.format(mycursor.execute(question)), 'post_at': (
