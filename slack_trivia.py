@@ -47,6 +47,8 @@ for x in mycursor:
 # if __name__ == "__main__":
 #     app.run(debug=True)
 
+#For loop for the questions, aiming to go through one a day
+
 #schedule messages once a day, either give four choices/true false
 #respond 8-16 hours later with correct response/maybe dm user if they got correct or not
 #respond with correct answer after a time period always
