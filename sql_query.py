@@ -17,10 +17,12 @@ for query in mycursor:
     # print(query)
     question_filter = query[1]
     # print(question_filter)
+    storage_id.append((query[0]))
 
-mycursor.execute(qid)
 
-for id in mycursor:
-    storage_id.append(id)
+# mycursor.execute(qid)
+
+# for id in mycursor:
+#     storage_id.append(id)
 
 print(storage_id)
