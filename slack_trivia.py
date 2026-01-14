@@ -21,8 +21,13 @@ load_dotenv(dotenv_path=env_path)
 # client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 # BOT_ID = client.api_call("auth.test")['user_id']
 
+
+#for loop starts here
+
 myquestion
 myanswer
+print(myquestion.question_filter)
+print(myanswer.answer_filtered)
 
 # SCHEDULED_MESSAGES = [
 #     {'text': 'Question Time: {}'.format(mycursor.execute(question)), 'post_at': (
@@ -30,6 +35,8 @@ myanswer
 #     {'text': 'Answer', 'post_at': (
 #         datetime.now() + timedelta(seconds=30)).timestamp(), 'channel': ''}
 # ]
+
+#end loop here?
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
