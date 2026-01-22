@@ -1,17 +1,15 @@
 import sql_database
 from sql_query import storage_id
+from sql_query import query_id
 
 answer_raw = "SELECT Aid, Answers FROM answer"
-# answer_filtered = ""
 
 mycursor = sql_database.mydb.cursor()
 
 mycursor.execute(answer_raw)
 
 for correct in mycursor:
-    if storage_id[0] == (correct[0]):
-        # print(correct)
-        answer_filtered = correct[1]
-        # print(answer_filtered)
+    answer_filtered = correct[1]
 
-storage_id.clear()
+    if correct[0] == query_id:
+        print(answer_filtered)

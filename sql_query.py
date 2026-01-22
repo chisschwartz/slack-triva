@@ -1,28 +1,31 @@
 import sql_database
 
 question = "SELECT Qid, Questions, Aid FROM trivia"
-qid = "SELECT Aid FROM trivia"
 storage_id = []
-
-print(storage_id)
+query_id = 1
 
 mycursor = sql_database.mydb.cursor()
 
-mycursor.execute(question)
+# def add_one():
+#     global query_id
+#     query_id += 1
 
-#for loop that to iterate over question so that only one question is given
-#could be stored in the main function?
+class question:
 
-for query in mycursor:
-    # print(query)
-    question_filter = query[1]
-    # print(question_filter)
-    storage_id.append((query[0]))
+    def question_maker():
 
+        mycursor.execute(question)
+        
+        global query_id
 
-# mycursor.execute(qid)
-
-# for id in mycursor:
-#     storage_id.append(id)
-
-print(storage_id)
+        for query in mycursor:
+            storage_id.append((query[0]))
+            question_filter = query[1]
+    
+            if query_id in storage_id:
+                if query_id == query[2]:
+                    print(storage_id)
+                    print(query_id)
+                    return question_filter
+    
+    print(question_maker())            

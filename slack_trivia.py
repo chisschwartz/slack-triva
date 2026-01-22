@@ -2,14 +2,13 @@ import slack
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from flask import Flask, request, Response
+from flask import Flask
 import slack.errors
 from slackeventsapi import SlackEventAdapter
-import string
 from datetime import datetime, timedelta
-import time
-import sql_query as myquestion
-import sql_answer as myanswer
+from sql_query import question
+# import sql_answer as myanswer
+# from sql_query import question_time
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -24,17 +23,23 @@ load_dotenv(dotenv_path=env_path)
 
 #for loop starts here
 
-myquestion
-myanswer
-print(myquestion.question_filter)
-print(myanswer.answer_filtered)
+question
 
-# SCHEDULED_MESSAGES = [
-#     {'text': 'Question Time: {}'.format(mycursor.execute(question)), 'post_at': (
-#         datetime.now() + timedelta(seconds=20)).timestamp(), 'channel': ''},
-#     {'text': 'Answer', 'post_at': (
-#         datetime.now() + timedelta(seconds=30)).timestamp(), 'channel': ''}
-# ]
+# myquestion
+# myanswer
+# print(myquestion.question_filter)
+# print(myanswer.answer_filtered)
+
+# try:
+#     response = client.chat_scheduleMessage(
+#         channel='',
+#         text='Question: {}'.format(myquestion.question_filter),
+#         post_at=int((datetime.now() + timedelta(seconds=5)).timestamp())
+#     )
+#     print ('message success!!: ', response)
+
+# except slack.errors.SlackApiError as error:
+#     print('message error: ', error)
 
 #end loop here?
 
