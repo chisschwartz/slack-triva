@@ -1,9 +1,12 @@
 import sql_database
+import random
 
 question = "SELECT Qid, Questions, Aid FROM trivia"
 question_answer = "SELECT Aid, Answers FROM answer"
 storage_id = []
 query_id = 0
+random_id = ""
+used_id = []
 
 mycursor = sql_database.mydb.cursor()
 
@@ -31,6 +34,13 @@ class question:
                 return question_filter
     
     print(question_maker())
+
+    random_id = random.choice(storage_id)
+        if random_id not in used_id:
+            
+    used_id.append(random_id)
+
+    print(random_id)
 
     # def answer():
 
