@@ -33,17 +33,20 @@ class question:
                 return question_filter
     
     print(question_maker())
-    print(storage_id)
+    # print(storage_id)
 
     # random_num = random.choice(storage_id)
 
-    for id in storage_id:
+    while storage_id != []:
         random_num = random.choice(storage_id)
+
         if random_num in storage_id:
             if random_num not in random_ids:
                 random_ids.append(random_num)
+                storage_id.remove(random_num)
                 print(random_num)
                 print(random_ids)
+                print(storage_id)
 
     # def answer():
 
