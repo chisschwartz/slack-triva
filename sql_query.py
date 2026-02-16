@@ -35,9 +35,10 @@ class question:
     print(question_maker())
     print(storage_id)
 
-    random_num = random.choice(storage_id)
+    # random_num = random.choice(storage_id)
 
     for id in storage_id:
+        random_num = random.choice(storage_id)
         if random_num in storage_id:
             if random_num not in random_ids:
                 random_ids.append(random_num)
