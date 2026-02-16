@@ -5,8 +5,7 @@ question = "SELECT Qid, Questions, Aid FROM trivia"
 question_answer = "SELECT Aid, Answers FROM answer"
 storage_id = []
 query_id = 0
-random_id = ""
-used_id = []
+random_ids = []
 
 mycursor = sql_database.mydb.cursor()
 
@@ -34,16 +33,16 @@ class question:
                 return question_filter
     
     print(question_maker())
+    print(storage_id)
+
+    random_num = random.choice(storage_id)
 
     for id in storage_id:
-        random_id = random.choice(storage_id)
-    
-        if random_id not in used_id:
-            if random_id in query_id:
-                return question_filter
-                used_id.append(random_id)
-
-    print(random_id)
+        if random_num in storage_id:
+            if random_num not in random_ids:
+                random_ids.append(random_num)
+                print(random_num)
+                print(random_ids)
 
     # def answer():
 
