@@ -21,6 +21,9 @@ load_dotenv(dotenv_path=env_path)
 # client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 # BOT_ID = client.api_call("auth.test")['user_id']
 
+#do not have time to code today, need to simplify the retrieval of id and value from database
+#probably refactor everything tomorrow
+
 myquestion
 myanswer
 
