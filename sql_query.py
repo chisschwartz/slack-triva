@@ -2,7 +2,7 @@ import sql_database
 import random
 
 question = "SELECT Qid, Questions, Aid FROM trivia"
-question_answer = "SELECT Aid, Answers FROM answer"
+# question_answer = "SELECT Aid, Answers FROM answer"
 storage_id = []
 query_id = 0
 random_ids = []
@@ -26,16 +26,14 @@ class question:
             question_filter = query[1]
             query_id = query[0]
             
-        if query_id in storage_id:
-            if query_id == query[2]:
-                print(storage_id)
-                print(query_id)
-                return question_filter
+        # if query_id in storage_id:
+        #     if query_id == query[2]:
+        #         print(storage_id)
+        #         print(query_id)
+        #         return question_filter
     
     print(question_maker())
-    # print(storage_id)
-
-    # random_num = random.choice(storage_id)
+    
 
     while storage_id != []:
         random_num = random.choice(storage_id)
