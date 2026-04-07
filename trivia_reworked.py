@@ -7,6 +7,7 @@ import slack.errors
 from slackeventsapi import SlackEventAdapter
 from datetime import datetime, timedelta
 import sql_database
+from ids import id_storage
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -20,27 +21,15 @@ load_dotenv(dotenv_path=env_path)
 
 #everything above supplies the crucial info to slack and the server
 
-storage_id = []
-
-question_answer = "SELECT Qid, Questions, Answers FROM trivia"
-mycursor = sql_database.mydb.cursor()
-
-mycursor.execute(question_answer)
-for query in mycursor:
-    storage_id.append(query[0])
-
-mycursor.close
-
-
 class Question_and_Answer:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
 
 current_trivia = Question_and_Answer("hello", "goodbye")
-print(current_trivia.question)
-print(current_trivia.answer)
-print(storage_id)
+for id in id_storage():
+    print(current_trivia.question)
+    print(current_trivia.answer)
 
 # try:
 #     response = client.chat_scheduleMessage(
