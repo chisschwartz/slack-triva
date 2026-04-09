@@ -16,8 +16,8 @@ load_dotenv(dotenv_path=env_path)
 # slack_event_adapter = SlackEventAdapter(
 #     os.environ['SIGNING_SECRET'],'/slack/events', app)
 
-# client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
-# BOT_ID = client.api_call("auth.test")['user_id']
+client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
+BOT_ID = client.api_call("auth.test")['user_id']
 
 #everything above supplies the crucial info to slack and the server
 
@@ -30,17 +30,18 @@ current_trivia = Question_and_Answer("hello", "goodbye")
 for id in id_storage():
     print(current_trivia.question)
     print(current_trivia.answer)
+    # client.chat_postMessage(channel='trivia', text='Question: {}'.format(current_trivia.question))
 
-# try:
-#     response = client.chat_scheduleMessage(
-#         channel='',
-#         text='Question: {}'.format(myquestion.question_filter),
-#         post_at=int((datetime.now() + timedelta(seconds=5)).timestamp())
-#     )
-#     print ('message success!!: ', response)
+try:
+    response = client.chat_scheduleMessage(
+        channel='trivia',
+        text='Question: {}'.format(current_trivia.question),
+        post_at=int((datetime.now() + timedelta(seconds=25)).timestamp())
+    )
+    print ('message success!!: ', response)
 
-# except slack.errors.SlackApiError as error:
-#     print('message error: ', error)
+except slack.errors.SlackApiError as error:
+    print('message error: ', error)
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
